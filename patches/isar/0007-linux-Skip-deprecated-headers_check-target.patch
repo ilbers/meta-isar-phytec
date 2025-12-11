@@ -1,0 +1,25 @@
+From dc3bc906cba59273f2d5d9844f28a9e47142911a Mon Sep 17 00:00:00 2001
+From: Zhihang Wei <wzh@ilbers.de>
+Date: Thu, 11 Dec 2025 12:13:58 +0100
+Subject: [PATCH 4/4] linux: Skip deprecated headers_check target
+
+---
+ meta/recipes-kernel/linux/files/debian/isar/install.tmpl | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meta/recipes-kernel/linux/files/debian/isar/install.tmpl b/meta/recipes-kernel/linux/files/debian/isar/install.tmpl
+index 4c8c889f..a1903cb6 100644
+--- a/meta/recipes-kernel/linux/files/debian/isar/install.tmpl
++++ b/meta/recipes-kernel/linux/files/debian/isar/install.tmpl
+@@ -199,7 +199,7 @@ kernel_headers() {
+ }
+ 
+ install_headers() {
+-    headers_check
++    #headers_check
+     [ -z ${kern_pkgs["linux-libc-dev"]} ] || libc_headers
+     kernel_headers
+ }
+-- 
+2.39.5
+

@@ -1,0 +1,75 @@
+From 7cf3604c51bd2f06dc4a4ea5dd1e8079ffe65bb3 Mon Sep 17 00:00:00 2001
+From: Zhihang Wei <wzh@ilbers.de>
+Date: Thu, 11 Dec 2025 11:54:02 +0100
+Subject: [PATCH 1/4] ubuntu-focal: Add conf files for ubuntu-focal
+
+---
+ meta-isar/conf/distro/ubuntu-noble-ports.list |  6 ++++
+ meta-isar/conf/distro/ubuntu-noble.conf       | 28 +++++++++++++++++++
+ meta-isar/conf/distro/ubuntu-noble.list       |  6 ++++
+ 3 files changed, 40 insertions(+)
+ create mode 100644 meta-isar/conf/distro/ubuntu-noble-ports.list
+ create mode 100644 meta-isar/conf/distro/ubuntu-noble.conf
+ create mode 100644 meta-isar/conf/distro/ubuntu-noble.list
+
+diff --git a/meta-isar/conf/distro/ubuntu-noble-ports.list b/meta-isar/conf/distro/ubuntu-noble-ports.list
+new file mode 100644
+index 00000000..adeb2639
+--- /dev/null
++++ b/meta-isar/conf/distro/ubuntu-noble-ports.list
+@@ -0,0 +1,6 @@
++deb	[arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports noble main restricted universe multiverse
++deb-src	[arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports noble main restricted universe multiverse
++deb	[arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports noble-updates main restricted universe multiverse
++deb-src	[arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports noble-updates main restricted universe multiverse
++deb	[arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports noble-security main restricted universe multiverse
++deb-src	[arch=armhf,arm64] http://ports.ubuntu.com/ubuntu-ports noble-security main restricted universe multiverse
+diff --git a/meta-isar/conf/distro/ubuntu-noble.conf b/meta-isar/conf/distro/ubuntu-noble.conf
+new file mode 100644
+index 00000000..a6f5e14d
+--- /dev/null
++++ b/meta-isar/conf/distro/ubuntu-noble.conf
+@@ -0,0 +1,28 @@
++#
++# Copyright (c) Siemens AG, 2018-2020
++#
++# SPDX-License-Identifier: MIT
++
++require conf/distro/debian-common.conf
++
++BASE_DISTRO = "ubuntu"
++BASE_DISTRO_CODENAME = "noble"
++
++HOST_DISTRO = "ubuntu-noble"
++
++DISTRO_APT_SOURCES_arm64 ?= "conf/distro/${BASE_DISTRO}-${BASE_DISTRO_CODENAME}-ports.list"
++HOST_DISTRO_APT_SOURCES_arm64 ?= "conf/distro/${HOST_DISTRO}.list conf/distro/${HOST_DISTRO}-ports.list"
++
++# that is what debootstrap_1.0.118ubuntu1 does anyways
++DISTRO_DEBOOTSTRAP_SCRIPT = "/usr/share/debootstrap/scripts/gutsy"
++
++DISTRO_CONFIG_SCRIPT ?= "debian-configscript.sh"
++
++DISTRO_KERNELS ?= " \
++    aws azure azure-edge gcp generic gke kvm lowlatency oem virtual \
++    snapdragon generic-lpae"
++
++IMAGE_PREINSTALL += "init"
++IMAGE_PREINSTALL += "initramfs-tools"
++
++#WIC_IMAGER_INSTALL += "python3-distutils"
+diff --git a/meta-isar/conf/distro/ubuntu-noble.list b/meta-isar/conf/distro/ubuntu-noble.list
+new file mode 100644
+index 00000000..91393a21
+--- /dev/null
++++ b/meta-isar/conf/distro/ubuntu-noble.list
+@@ -0,0 +1,6 @@
++deb	[arch=amd64,i386] http://archive.ubuntu.com/ubuntu noble main restricted universe multiverse
++deb-src	[arch=amd64,i386] http://archive.ubuntu.com/ubuntu noble main restricted universe multiverse
++deb	[arch=amd64,i386] http://archive.ubuntu.com/ubuntu noble-updates main restricted universe multiverse
++deb-src	[arch=amd64,i386] http://archive.ubuntu.com/ubuntu noble-updates main restricted universe multiverse
++deb	[arch=amd64,i386] http://archive.ubuntu.com/ubuntu noble-security main restricted universe multiverse
++deb-src	[arch=amd64,i386] http://archive.ubuntu.com/ubuntu noble-security main restricted universe multiverse
+-- 
+2.39.5
+

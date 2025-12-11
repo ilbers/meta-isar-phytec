@@ -1,0 +1,25 @@
+From 3bc72fa05bd89e5c5b408e864e2d0629a79c8209 Mon Sep 17 00:00:00 2001
+From: Zhihang Wei <wzh@ilbers.de>
+Date: Thu, 11 Dec 2025 11:54:56 +0100
+Subject: [PATCH 2/4] ubuntu-focal: Add fakeroot as a required package for
+ building
+
+---
+ meta/recipes-devtools/buildchroot/buildchroot.inc | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/meta/recipes-devtools/buildchroot/buildchroot.inc b/meta/recipes-devtools/buildchroot/buildchroot.inc
+index aa190e92..93994e00 100644
+--- a/meta/recipes-devtools/buildchroot/buildchroot.inc
++++ b/meta/recipes-devtools/buildchroot/buildchroot.inc
+@@ -30,6 +30,7 @@ BUILDCHROOT_COMPAT_PREINSTALL_compat-arch = " \
+ BUILDCHROOT_PREINSTALL_COMMON = " \
+     ${BUILDCHROOT_COMPAT_PREINSTALL} \
+     make \
++    fakeroot \
+     debhelper \
+     autotools-dev \
+     ccache \
+-- 
+2.39.5
+

@@ -1,0 +1,35 @@
+From d4c70fc838ac99998cd393bdd23b815953ab0ae4 Mon Sep 17 00:00:00 2001
+From: Zhihang Wei <wzh@ilbers.de>
+Date: Thu, 11 Dec 2025 12:10:03 +0100
+Subject: [PATCH 3/4] ubuntu-focal: Disable deprecated python packages
+
+---
+ meta/conf/distro/debian-common.conf    | 1 -
+ meta/conf/distro/debian-sid-ports.conf | 2 --
+ 2 files changed, 3 deletions(-)
+
+diff --git a/meta/conf/distro/debian-common.conf b/meta/conf/distro/debian-common.conf
+index d24fc2bb..0a6b7e5c 100644
+--- a/meta/conf/distro/debian-common.conf
++++ b/meta/conf/distro/debian-common.conf
+@@ -16,7 +16,6 @@ WIC_IMAGER_INSTALL = "parted \
+                       dosfstools \
+                       mtools \
+                       e2fsprogs \
+-                      python3-distutils \
+                       bmap-tools \
+                       tar \
+                       fdisk"
+diff --git a/meta/conf/distro/debian-sid-ports.conf b/meta/conf/distro/debian-sid-ports.conf
+index e71a467d..005dee39 100644
+--- a/meta/conf/distro/debian-sid-ports.conf
++++ b/meta/conf/distro/debian-sid-ports.conf
+@@ -22,5 +22,3 @@ HOST_DISTRO_APT_SOURCES += "${DISTRO_APT_SOURCES}"
+ THIRD_PARTY_APT_KEYS += "${DEBIAN_PORTS_KEYS}"
+ 
+ IMAGE_PREINSTALL += "init"
+-
+-WIC_IMAGER_INSTALL += "python3-distutils"
+-- 
+2.39.5
+
