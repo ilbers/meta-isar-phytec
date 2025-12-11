@@ -3,6 +3,7 @@ From: Zhihang Wei <wzh@ilbers.de>
 Date: Thu, 11 Dec 2025 12:13:58 +0100
 Subject: [PATCH 4/4] linux: Skip deprecated headers_check target
 
+Signed-off-by: Zhihang Wei <wzh@ilbers.de>
 ---
  meta/recipes-kernel/linux/files/debian/isar/install.tmpl | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

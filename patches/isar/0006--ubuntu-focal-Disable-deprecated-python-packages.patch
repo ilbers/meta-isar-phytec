@@ -3,6 +3,7 @@ From: Zhihang Wei <wzh@ilbers.de>
 Date: Thu, 11 Dec 2025 12:10:03 +0100
 Subject: [PATCH 3/4] ubuntu-focal: Disable deprecated python packages
 
+Signed-off-by: Zhihang Wei <wzh@ilbers.de>
 ---
  meta/conf/distro/debian-common.conf    | 1 -
  meta/conf/distro/debian-sid-ports.conf | 2 --

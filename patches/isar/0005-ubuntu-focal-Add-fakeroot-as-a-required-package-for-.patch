@@ -4,6 +4,7 @@ Date: Thu, 11 Dec 2025 11:54:56 +0100
 Subject: [PATCH 2/4] ubuntu-focal: Add fakeroot as a required package for
  building
 
+Signed-off-by: Zhihang Wei <wzh@ilbers.de>
 ---
  meta/recipes-devtools/buildchroot/buildchroot.inc | 1 +
  1 file changed, 1 insertion(+)

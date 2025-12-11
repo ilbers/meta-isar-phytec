@@ -3,6 +3,7 @@ From: Zhihang Wei <wzh@ilbers.de>
 Date: Thu, 11 Dec 2025 11:54:02 +0100
 Subject: [PATCH 1/4] ubuntu-focal: Add conf files for ubuntu-focal
 
+Signed-off-by: Zhihang Wei <wzh@ilbers.de>
 ---
  meta-isar/conf/distro/ubuntu-noble-ports.list |  6 ++++
  meta-isar/conf/distro/ubuntu-noble.conf       | 28 +++++++++++++++++++
